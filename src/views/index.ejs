@@ -1,0 +1,353 @@
+<%- include("header") -%>
+<div class="mainContainer">
+  <header>
+    <!-- <ul>
+          <li><h2>Uasin Gishu</h2></li>
+          <li class="logo">
+            <h2>
+              <img width="40px" height="40px" src="./images/logo.png" alt="" />
+              News
+            </h2>
+          </li>
+          <li><h2>Wednesday 20th October, 2021</h2></li>
+        </ul> -->
+
+    <nav class="navbar">
+      <!-- <img width="40px" height="40px" src="./images/logo.png" alt="" /> -->
+      <h2>NEWS</h2>
+      <input type="checkbox" name="" id="chk1" />
+      <!-- <div class="logo"><h1></h1></div> -->
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/politics">Politics</a></li>
+        <li><a href="/world">World</a></li>
+        <li><a href="/business">Business</a></li>
+        <li><a href="/economics">Economics</a></li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Others <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/technology">Technology</a>
+              <a href="/science">Science</a>
+              <a href="/energy">Energy</a>
+              <a href="/food">Food</a>
+              <a href="/entertainment">Entertainment</a>
+              <a href="/travel">Travel</a>
+              <a href="/music">Music</a>
+              <a href="/sport">Sport and Gaming</a>
+            </div>
+          </div>
+        </li>
+        <!-- <li><a href="#"></a>Others</li> -->
+        <li>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/Julieus_G?t=9pBVaTkpTY1AMoGbCH-D0Q&s=08"
+            ><i class="fa fa-twitter"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=user_system_sheet&utm_content=1zle754"
+            ><i class="fa fa-instagram"></i
+          ></a>
+        </li>
+      </ul>
+      <div class="menu">
+        <label for="chk1">
+          <i class="fa fa-bars"></i>
+        </label>
+      </div>
+      <div class="search-box">
+        <form action="/pages" method="POST" class="form1">
+          <input type="text" name="search" id="srch" placeholder="Search for news" />
+          <button type="submit"><i class="fa fa-search btn"></i></button>
+        </form>
+      </div>
+          <div class="dropdown">
+            <button class="dropbtn2">
+              <div class="profile">
+                <input type="file" class="my_file">
+              </div>
+            </button>
+            <!-- Check is user is loggedIn -->
+            <% if (useruid) { %>
+             <div class="dropdown-content">
+              <i class="fas fa-sign-in-alt"></i><a href="/signout">Sign Out</a>
+              <i class="far fa-star"></i><a href="/register">Favourites</a>
+
+             </div>
+            <% } else { %>
+              <div class="dropdown-content">
+              <i class="fas fa-sign-in-alt"></i><a href="/login">Sign in</a>
+              <i class="fas fa-sign-up-alt"></i><a href="/register">Sign up</a>
+              <i class="far fa-star"></i><a href="/register">Favourites</a>
+            </div>
+            <% } %>
+            
+          </div>
+      <!-- <div class="credentials">
+        <div class="profile">
+          <input type="file" class="my_file" onmouseover="dropToggle()" onmouseout="dropTooggle()">
+        </div>
+        <div class="drop">
+          <h2>Name</h2>
+          <ul class="logs">
+            <li><i class="fas fa-sign-in-alt"></i><a href="/login">Sign in</a></li>
+            <li><i class="fas fa-sign-out-alt"></i><a href="/register">Sign out</a></li>
+            <li><i class="far fa-star"></i><a href="#">Favourites</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </nav>
+  </header>
+
+  <!-- section  -->
+
+  <section class="showcase">
+    <div class="majordiv">
+      <div class="outer">
+        <p>
+          <%= firstSummary %>
+          <a class="links" href="<%-firstLink%>">Read more</a>
+        </p>
+        <br>
+        <p>
+          <%= secondSummary %>
+          <a class="links" href="<%-secondLink%>">Read more</a>
+        </p>
+        <br>
+        <p>
+          <%= thirdSummary %>
+          <a class="links" href="<%-thirdLink%>">Read more</a>
+        </p>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <div class="inner">
+      </div>
+    </div>
+    <div class="minordiv">
+      <p>
+        <%= firstTitle %>
+        <a class="links" href="<%-fourthLink%>">Read more</a>
+      </p>
+    <br>
+      <p>
+        <%= secondTitle %>
+        <a class="links" href="<%-fifthLink%>">Read more</a>
+      </p>
+    <br>
+          <p>
+        <%= thirdTitle %>
+        <a class="links" href="<%-sixthLink%>">Read more</a>
+      </p>
+    <br>
+          <p>
+        <%= fourthTitle %>
+        <a class="links" href="<%-seventhLink%>">Read more</a>
+      </p>
+    <br>
+          <p>
+        <%= fifthTitle %>
+        <a class="links" href="<%-eighthLink%>">Read more</a>
+      </p>
+    <br>
+          <p>
+        <%= sixthTitle %>
+        <a class="links" href="<%-ninthLink%>">Read more</a>
+      </p>
+    <br>
+          <p>
+        <%= seventhTitle %>
+        <a class="links" href="<%-tenthLink%>">Read more</a>
+      </p>
+    <br>
+    </div>
+  </section>
+</div>
+
+<!-- section 2 -->
+
+<div class="subsection">
+  <div class="divone">
+    <div class="contents">
+      <h4><i class="fas fa-circle circle"></i>Hot topic</h4>
+      <% if (fourthSummary.length > 325) { %>
+        <%=fourthSummary.substring(0, 325)%> ...
+          <a class="links" href="<%-eleventhLink%>">Read more</a>
+            <%} else { %>
+        <%= fourthSummary %>...
+          <a class="links" href="<%-eleventhLink%>">Read more</a>
+      <% } %>
+    </div>
+    <div class="contents">
+      <h4><i class="fas fa-circle circle"></i>Hot topic</h4>
+      <% if (fifthSummary.length > 325) { %>
+        <%=fifthSummary.substring(0, 325)%> ...
+          <a class="links" href="<%-twelfthLink%>">Read more</a>
+            <%} else { %>
+        <%= fifthSummary %>...
+          <a class="links" href="<%-twelfthLink%>">Read more</a>
+      <% } %>
+    </div>
+    <div class="contents">
+      <h4><i class="fas fa-circle circle"></i>Hot topic</h4>
+      <% if (sixthSummary.length > 325) { %>
+        <%=sixthSummary.substring(0, 325)%> ...
+          <a class="links" href="<%-thirteenthLink%>">Read more</a>
+            <%} else { %>
+        <%= sixthSummary %>...
+          <a class="links" href="<%-thirteenthLink%>">Read more</a>
+      <% } %>
+    </div>
+    <div class="contents">
+      <h4><i class="fas fa-circle circle"></i>Hot topic</h4>
+      <% if (seventhSummary.length > 325) { %>
+        <%=seventhSummary.substring(0, 325)%> ...
+          <a class="links" href="<%-fourteenthLink%>">Read more</a>
+            <%} else { %>
+        <%= seventhSummary %>...
+          <a class="links" href="<%-fourteenthLink%>">Read more</a>
+      <% } %>
+    </div>
+    <div class="contents">
+      <h4><i class="fas fa-circle circle"></i>Hot topic</h4>
+      <% if (eighthSummary.length > 325) { %>
+        <%=eighthSummary.substring(0, 325)%> ...
+          <a class="links" href="<%-fifteenthLink%>">Read more</a>
+            <%} else { %>
+        <%= eighthSummary %>...
+          <a class="links" href="<%-fifteenthLink%>">Read more</a>
+      <% } %>
+      </div>
+  </div>
+  <div class="divtwo" style="background: url('<%- firstMedia %>'); background-repeat: no-repeat; background-size: 100% 100%;">
+    <h2 style="padding-left: 30px; padding-top: 50px;"><%= country %></h2>
+    <div class="divtwo-p">
+      <p>
+        <h4><i class="fas fa-circle circle"></i>Hot topic</h4>
+        <%= ninthSummary %>
+        <br />
+        <a class="links" href="#">Read more</a>
+      </p>
+    </div>
+  </div>
+  <div class="divthree">
+    <div class="small-nav">
+      <ul>
+        <li>Hot topics</li>
+      </ul>
+    </div>
+    <div class="content-image content">
+      <img src="<%- secondMedia %>" alt="" style="height: auto; width: auto" />
+      <p>
+        <% if (tenthSummary.length > 200) { %>
+        <%= tenthSummary.substring(0, 200)%> ...
+        <a class="links" href="<%-sixteenthLink%>">Read more</a>
+      <%} else { %>
+        <%= tenthSummary %> ...
+        <a class="links" href="<%-sixteenthLink%>">Read more</a>
+      <% } %>
+      </p>
+    </div>
+    <div class="content-image content">
+      <img src="<%- thirdMedia %>" alt="" style="height: 80%; width: auto" />
+      <p>
+        <% if (tenthSummary.length > 200) { %>
+        <%= eleventhSummary.substring(0, 200)%> ...
+        <a class="links" href="<%-seventeenthLink%>">Read more</a>
+      <%} else { %>
+        <%= eleventhSummary %> ...
+        <a class="links" href="<%-seventeenthLink%>">Read more</a>
+      <% } %>
+      </p>
+    </div>
+    <div class="content-image content">
+      <img src="<%- fourthMedia %>" alt="" style="height: 80%; width: auto" />
+      <p>
+        <% if (twelfthSummary.length > 200) { %>
+        <%= twelfthSummary.substring(0, 200)%> ...
+        <a class="links" href="<%-eighteenthLink%>">Read more</a>
+      <%} else { %>
+        <%= twelfthSummary %> ...
+        <a class="links" href="<%-eighteenthLink%>">Read more</a>
+      <% } %>
+      </p>
+    </div>
+    <div class="content-image content">
+      <img src="<%- fifthMedia %>" alt="" style="height: 80%; width: auto" />
+      <p>
+        <% if (thirteenthSummary.length > 200) { %>
+        <%= thirteenthSummary.substring(0, 200)%> ...
+        <a class="links" href="<%-ninteenthLink%>">Read more</a>
+      <%} else { %>
+        <%= thirteenthSummary %> ...
+        <a class="links" href="<%-ninteenthLink%>">Read more</a>
+      <% } %>
+      </p>
+    </div>
+    <div class="content-image content">
+      <img src="<%- sixthMedia %>" alt="" style="height: 80%; width: auto" />
+      <p>
+        <% if (fourteenthSummary.length > 200) { %>
+        <%= fourteenthSummary.substring(0, 200)%> ...
+        <a class="links" href="<%-twentiethLink%>">Read more</a>
+      <%} else { %>
+        <%= fourteenthSummary %> ...
+        <a class="links" href="<%-twentiethLink%>">Read more</a>
+      <% } %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3 -->
+
+<section class="content2">
+  <fieldset class="content2-p">
+    <legend><h2>Quotes and Mentions</h2></legend>
+    <p style="text-align: center;">
+    <%= quote %>
+    <div style="text-align: center; color: black; font-weight: bold; font-style: italic; font-size: 1.3rem; margin-top: 10px;">
+      - <%= quoteAuthor %>
+    </div>
+    </p>
+  </fieldset>
+</section>
+
+<!-- section 4 -->
+
+<section class="content3">
+  <div class="content3-div">
+    <div class="divtwo-2">
+      <!-- <h2>Ongata Rongai, Nairobi</h2> -->
+      <div class="divtwo-p-2 majordiv2">
+        <p>
+          <h4><i class="fas fa-circle circle"></i><%= firstTopic %></h4>
+          <br />
+                  <%= fifteenthSummary %>
+          <br/>
+          <a class="links" href="<%-twentyfirstLink%>">Read more</a>
+        </p>
+      </div>
+    </div>
+    <div class="minordiv2">
+      <h3 class="content" style="font-size: 12px">LONG STORY SHORT</h3>
+      <ul class="content">
+        <li style="margin-bottom: 1rem">
+          <p>
+            <%= sixteenthSummary %>
+          </p>
+          <a style="padding-left: 0" class="links" href="<%- twentysecondLink %>">READ MORE</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script src="/js/prof.js"></script>
+
+<%- include("footer") -%>
