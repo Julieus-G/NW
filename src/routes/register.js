@@ -14,8 +14,8 @@ registerRouter.get('', (req, res) => {
 });
 registerRouter.post('', (req, res) => {
     const { email, password, passwordConfirm } = req.body;
-   
-     if (password !== passwordConfirm) {
+
+    if (password !== passwordConfirm) {
         res.render('register', {
             error: "Password does not match",
             display: "block"

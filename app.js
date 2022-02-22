@@ -92,7 +92,7 @@ app.route('/pages')
       .request(options)
       .then(function (response) {
         var contents = response.data.articles;
-        console.log(contents);
+        // console.log(contents);
         res.render("search", { contents: contents });
 
       })
@@ -121,5 +121,5 @@ app.listen(port, () =>
   console.log(`Listening on port http://localhost:${port}`)
 );
 
-// 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-PAT
+// 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-PAT
 

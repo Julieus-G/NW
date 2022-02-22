@@ -4,10 +4,6 @@ var axios = require("axios").default;
 const request = require("request");
 const { getAuth, onAuthStateChanged } = require("firebase/auth");
 
-
-
-
-
 let quote = "";
 let quoteAuthor = "";
 
