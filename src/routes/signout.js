@@ -1,11 +1,10 @@
 const express = require("express");
 const { getAuth, signOut } = require("firebase/auth");
 
-
 // Signout route
 const signOutRouter = express.Router();
 
-signOutRouter.get("", (req, res) => {
+signOutRouter.get("/", (req, res) => {
     // Firebase signout
     signOut(getAuth())
         .then(() => {

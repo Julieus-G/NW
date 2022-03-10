@@ -1,10 +1,7 @@
 const express = require('express');
-const registerRouter = express.Router();
-// const {} = require("../firebase/firebase.util")
 const { getAuth, createUserWithEmailAndPassword } = require("firebase/auth");
 const { getCurrentUser } = require('../firebase/firebase.util');
-
-
+const registerRouter = express.Router();
 
 registerRouter.get('', (req, res) => {
     res.render('register', {
@@ -30,7 +27,7 @@ registerRouter.post('', (req, res) => {
             })
             .catch(err => {
                 res.render('register', {
-                    error: err.message,
+                    error: err,
                     display: "block"
                 });
             });
