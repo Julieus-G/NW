@@ -4,7 +4,6 @@ const { getAuth, onAuthStateChange } = ("firebase/auth");
 const admin = require("firebase-admin");
 const { applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
-// const { getFirestore } = ("firebase/firestore");
 
 const firebaseApp = initializeApp({
     apiKey: "AIzaSyC6Y2pKv2B6OpLeJZEB3EHzxPDBQcsy6o4",
@@ -16,10 +15,67 @@ const firebaseApp = initializeApp({
 });
 
 
-admin.initializeApp();
-// const auth = getAuth(firebaseApp);
-const db = admin.firestore();
+
+
+firebase.initializeApp
+const app = admin.initializeApp(firebaseApp);
+console.log(app.name);
+// const db = admin.firestore(app);
+const db = getFirestore();
+
+
+
+// const data = {
+//     name: 'Los Angeles',
+//     state: 'CA',
+//     country: 'USA'
+// };
+// try {
+//     const res =await db.collection('cities').doc('LA').set(data);
+
+// } catch (err) {
+//     next(err);
+// }
+// Add a new document in collection "cities" with ID 'LA'
+
+
+// console.log(res);
+// admin.initializeApp();
+
+
+// admin.initializeApp();
+// // const auth = getAuth(firebaseApp);
+// const db = admin.firestore();
 // const docRef = db.collection('users').doc('alovelace');
+async function quickstartAddData(db) {
+    // [START firestore_setup_dataset_pt1]
+    const docRef = db.collection('users').doc('alovelace');
+
+    await docRef.set({
+        first: 'Ada',
+        last: 'Lovelace',
+        born: 1815
+    });
+    const aTuringRef = db.collection('users').doc('aturing');
+
+    await aTuringRef.set({
+        'first': 'Alan',
+        'middle': 'Mathison',
+        'last': 'Turing',
+        'born': 1912
+    });
+}
+
+
+
+async function quickstartListen(db) {
+    // [START firestore_setup_dataset_read]
+    const snapshot = await db.collection('users').get();
+    snapshot.forEach((doc) => {
+        console.log(doc.id, '=>', doc.data());
+    });
+    // [END firestore_setup_dataset_read]
+}
 
 // getQuote().then(result => {
 //     console.log(result.body);
@@ -42,7 +98,7 @@ const db = admin.firestore();
 // });
 // const aTuringRef = db.collection('users').doc('aturing');
 
-// aTuringRef.set({
+// await aTuringRef.set({
 //     'first': 'Alan',
 //     'middle': 'Mathison',
 //     'last': 'Turing',
